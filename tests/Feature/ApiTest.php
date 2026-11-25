@@ -26,4 +26,12 @@ class ApiTest extends TestCase
     {
         $this->postJson('/api/links', [])->assertUnprocessable();
     }
+
+    public function test_duplicate_slug_and_non_http_url_are_rejected(): void
+    {
+        $p = ['slug' => 'docs', 'label' => 'Docs', 'target_url' => 'https://example.com'];
+        $this->postJson('/api/links', $p)->assertCreated();
+        $this->postJson('/api/links', $p)->assertUnprocessable();
+        $this->postJson('/api/links', ['slug' => 'x', 'label' => 'X', 'target_url' => 'javascript:alert(1)'])->assertUnprocessable();
+    }
 }

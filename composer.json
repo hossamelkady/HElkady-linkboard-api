@@ -1,5 +1,5 @@
 {
-  "name": "hossamelkady/linkboard-api",
+  "name": "hossamelkady/HElkady-linkboard-api",
   "type": "project",
   "description": "A link catalog API with slugs, destinations, and click counters.",
   "keywords": ["laravel", "php", "rest-api", "portfolio"],
